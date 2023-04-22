@@ -1,0 +1,33 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.11'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.capstone'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+	
+	compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.8'
+	// https://mvnrepository.com/artifact/io.github.classgraph/classgraph
+	implementation group: 'io.github.classgraph', name: 'classgraph', version: '4.8.157'
+	// https://mvnrepository.com/artifact/org.webjars/webjars-locator
+	implementation group: 'org.webjars', name: 'webjars-locator', version: '0.46'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
